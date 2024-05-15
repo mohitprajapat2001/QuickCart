@@ -17,7 +17,14 @@ class OfferAdmin(admin.ModelAdmin):
         (
             "Offer Details",
             {
-                "fields": ["id", "title", "description", "discount", "status"],
+                "fields": [
+                    "id",
+                    "title",
+                    "description",
+                    "discount",
+                    "category",
+                    "status",
+                ],
             },
         ),
     ]

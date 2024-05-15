@@ -7,6 +7,19 @@ from django_extensions.db.models import (
 )
 
 
+class Category(TitleDescriptionModel, ActivatorModel):
+    subcategory = models.ForeignKey(
+        "self",
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="subcategories",
+    )
+
+    def __str__(self):
+        return self.title
+
+
 class Offer(TitleDescriptionModel, ActivatorModel, TimeStampedModel):
     discount = models.DecimalField(
         verbose_name="Discount Percentage",
@@ -15,18 +28,8 @@ class Offer(TitleDescriptionModel, ActivatorModel, TimeStampedModel):
         null=True,
         blank=True,
     )
-
-    def __str__(self):
-        return self.title
-
-
-class Category(TitleDescriptionModel, ActivatorModel):
-    subcategory = models.ForeignKey(
-        "self",
-        null=True,
-        blank=True,
-        on_delete=models.CASCADE,
-        related_name="subcategories",
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, related_name="offer"
     )
 
     def __str__(self):
