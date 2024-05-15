@@ -4,3 +4,8 @@
 #     'ENGINE': 'django.db.backends.sqlite3',
 #     'NAME': BASE_DIR / 'db.sqlite3',
 # }
+
+
+# CHOICES STRINGS
+BUYER_CHOICE = "buyer"
+SELLER_CHOICE = "seller"
