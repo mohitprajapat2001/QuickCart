@@ -5,6 +5,7 @@ from django_extensions.db.models import (
     TimeStampedModel,
     TitleDescriptionModel,
 )
+from users import models as userModel
 
 
 class Category(TitleDescriptionModel, ActivatorModel):
@@ -19,6 +20,10 @@ class Category(TitleDescriptionModel, ActivatorModel):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = "Product Category"
+        ordering = ["id"]
+
 
 class Offer(TitleDescriptionModel, ActivatorModel, TimeStampedModel):
     discount = models.DecimalField(
@@ -28,12 +33,19 @@ class Offer(TitleDescriptionModel, ActivatorModel, TimeStampedModel):
         null=True,
         blank=True,
     )
+    user = models.ForeignKey(
+        userModel.CustomUser, on_delete=models.CASCADE, related_name="offers"
+    )
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name="offer"
     )
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "Product Discount"
+        ordering = ["id"]
 
 
 class Product(TitleDescriptionModel, ActivatorModel):
@@ -48,11 +60,23 @@ class Product(TitleDescriptionModel, ActivatorModel):
     quantity = models.SmallIntegerField(
         verbose_name="Product Quanity", default=1, null=True, blank=True
     )
-    offer = models.ForeignKey(Offer, on_delete=models.CASCADE, related_name="product")
-    category = models.ManyToManyField(Category, related_name="product")
+    offer = models.ForeignKey(
+        Offer, on_delete=models.CASCADE, related_name="product", null=True, blank=True
+    )
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name="product",
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "Product"
+        ordering = ["id"]
 
 
 class ProductImage(models.Model):
@@ -64,25 +88,47 @@ class ProductImage(models.Model):
         upload_to="Product Images",
         null=True,
         blank=True,
+        max_length=500,
+    )
+    image_1_alt = models.CharField(
+        max_length=5000, verbose_name="Image 1 Alt Text", null=True, blank=True
     )
     image_2 = models.ImageField(
         verbose_name="Product Image 2",
         upload_to="Product Images",
         null=True,
         blank=True,
+        max_length=500,
     )
+    image_2_alt = models.CharField(
+        max_length=5000, verbose_name="Image 2 Alt Text", null=True, blank=True
+    )
+
     image_3 = models.ImageField(
         verbose_name="Product Image 3",
         upload_to="Product Images",
         null=True,
         blank=True,
+        max_length=500,
     )
+    image_3_alt = models.CharField(
+        max_length=5000, verbose_name="Image 3 Alt Text", null=True, blank=True
+    )
+
     image_4 = models.ImageField(
         verbose_name="Product Image 4",
         upload_to="Product Images",
         null=True,
         blank=True,
+        max_length=500,
+    )
+    image_4_alt = models.CharField(
+        max_length=5000, verbose_name="Image 4 Alt Text", null=True, blank=True
     )
 
     def __str__(self):
         return "{} - Product Images".format(self.product.title)
+
+    class Meta:
+        verbose_name = "Product Images"
+        ordering = ["id"]

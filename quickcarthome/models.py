@@ -10,3 +10,7 @@ class Banner(TitleDescriptionModel, ActivatorModel):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = "Banner Details"
+        ordering = ["id"]

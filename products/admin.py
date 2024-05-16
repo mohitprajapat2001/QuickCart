@@ -21,6 +21,7 @@ class OfferAdmin(admin.ModelAdmin):
                     "id",
                     "title",
                     "description",
+                    "user",
                     "discount",
                     "category",
                     "status",
@@ -59,8 +60,8 @@ class CategoryAdmin(admin.ModelAdmin):
             },
         ),
     ]
-    search_fields = ["title", "subcategory"]
-    list_filter = ["subcategory", "status"]
+    search_fields = ["title"]
+    list_filter = ["status"]
     ordering = ["title"]
     actions = ["status_unactive", "status_active"]
 
@@ -132,9 +133,18 @@ class ProductImageAdmin(admin.ModelAdmin):
         (
             "Product Images Details",
             {
-                "fields": ["image_1", "image_2", "image_3", "image_4"],
+                "fields": [
+                    "image_1",
+                    "image_1_alt",
+                    "image_2",
+                    "image_2_alt",
+                    "image_3",
+                    "image_3_alt",
+                    "image_4",
+                    "image_4_alt",
+                ],
             },
         ),
     ]
-    search_fields = ["product"]
+    search_fields = ["product__title__icontains"]
     ordering = ["id"]
