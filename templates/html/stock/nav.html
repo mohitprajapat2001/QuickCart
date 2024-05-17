@@ -1,0 +1,96 @@
+{% load static %}
+{% block nav %}
+<!-- Navbar-->
+<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container-fluid justify-content-between">
+        <!-- Nav Form -->
+        <div class="nav-form">
+            <form class="d-none d-md-flex input-group w-auto my-auto">
+                <input autocomplete="off" type="search" id="nav-input" class="form-control rounded"
+                    placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
+                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+            </form>
+        </div>
+        <!-- Brand -->
+        <div class="nav-brand">
+            <a class="navbar-brand text-uppercase fs-2 fw-bolder me-2 mb-1 d-flex align-items-center"
+                href="{% url 'home' %}">
+                quickcart
+            </a>
+        </div>
+        <!-- Nav Links -->
+        <div class="nav-links">
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+
+                <!-- Icons -->
+                <li class="nav-item">
+                    <a class="nav-link me-3 me-lg-0 {% if request.path == '/home/' %}active{% endif %}"
+                        href="{% url 'home' %}">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-3 me-lg-0 {% if request.path == '/cart/' %}active{% endif %}"
+                        href="#">
+                        <i class="fas fa-cart-shopping"></i>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link {% if request.path == '/home/info/' %}active{% endif %}" href="#">
+                        <i class="fas fa-circle-info"></i>
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <!-- Avatar -->
+                <li class="nav-item dropdown">
+                    <button
+                        class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center btn btn-tertiary px-2"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
+                            height="22" alt="profile" loading="lazy" />
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="avtarDropDown">
+                        <li><a class="dropdown-item" href="$">My profile</a></li>
+                        <li><a class="dropdown-item" href="$">Logout</a></li>
+                    </ul>
+                    {% if user.is_superuser %}
+                <li class="nav-item dropdown">
+                    <a class="btn btn-primary" href="/admin" role="button" target="_blank">Admin</a>
+                </li>
+                {% endif %}
+                {% else %}
+                <li class="nav-item dropdown">
+                    <a class="btn btn-primary" href="$" role="button">Login</a>
+                </li>
+
+                {% endif %}
+                </li>
+                <li>
+                    <button class="btn btn-primary mx-2 d-lg-none" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        <i class="fa fa-sliders"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+
+<!-- OffCavas for Sidebar -->
+<div class="offcanvas offcanvas-start" tabindex="0" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body bg-tertiary">
+
+    </div>
+</div>
+<!-- End Offcanava -->
+
+<!-- Navbar -->
+
+
+{% endblock %}

@@ -3,7 +3,5 @@ from django.shortcuts import render, HttpResponse
 from django.views.generic import *
 
 
-class Home(View):
-
-    def get(self, request):
-        return HttpResponse("Hello")
+class Home(TemplateView):
+    template_name = "html/base.html"
