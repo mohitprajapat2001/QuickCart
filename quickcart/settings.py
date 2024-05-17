@@ -64,6 +64,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "quickcart.context_processors.category_details",
+                "quickcart.context_processors.banner_details",
             ],
         },
     },

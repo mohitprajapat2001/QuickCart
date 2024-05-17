@@ -1,3 +1,4 @@
+// script.js
 $(document).ready(() => {
     // Custom Shortcut to Focus Nav Input
     $(document).keydown(function (event) {
@@ -6,4 +7,8 @@ $(document).ready(() => {
             $('#nav-input').focus();
         }
     });
-})
+});
+
+$(window).on('load', function () {
+    $("#loading-beat").fadeOut(300)
+});

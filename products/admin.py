@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from products.models import Offer, Category, Product, ProductImage
+from products.models import Offer, Category, Product, ProductImage, Review
 from django_extensions.db.models import ActivatorModel
 
 
@@ -148,3 +148,20 @@ class ProductImageAdmin(admin.ModelAdmin):
     ]
     search_fields = ["product__title__icontains"]
     ordering = ["id"]
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ["user", "product", "comment"]
+    readonly_fields = ["id"]
+    fieldsets = [
+        (
+            "Review Details",
+            {
+                "fields": ["id", "user", "product", "comment"],
+            },
+        )
+    ]
+    search_fields = ["product__title__icontains", "user__username__icontains"]
+    list_filter = ["created"]
+    ordering = ["created"]
