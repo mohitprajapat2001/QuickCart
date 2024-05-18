@@ -14,6 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/loader.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     {% block css %}{% endblock %}
 </head>
 
@@ -29,14 +30,17 @@
             {% include 'html/stock/categories.html' %}
             {% block category %}{% endblock %}
         </div>
-        <div class="banner-carousel">
-            {% include 'html/quickhtml/banner-carousel.html' %}
-            {% block banner-carousel %}{% endblock %}
-        </div>
+        {% block content %}{% endblock %}
         <div id="footer">
             {% include 'html/stock/footer.html' %}
             {% block footer %}{% endblock %}
         </div>
+    </div>
+    <div class="back-to-top mb-3 mx-3">
+        <button class="button" id="scroll-top">
+            <i class="fas fa-arrow-up text-light"></i>
+        </button>
+
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="

@@ -9,3 +9,7 @@
 # CHOICES STRINGS
 BUYER_CHOICE = "buyer"
 SELLER_CHOICE = "seller"
+
+
+# HTML TEMPLATE
+HOME_HTML = "html/home.html"
