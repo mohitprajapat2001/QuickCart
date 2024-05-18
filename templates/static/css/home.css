@@ -30,9 +30,46 @@ button.offer-btn:hover>i.fa-opencart {
   transform: translateX(7px);
 }
 
+
 button.offer-btn:hover {
   box-shadow: 12px 12px 35px #d1d1d1, -12px -12px 35px #ffffff;
   transform: translateY(-4px);
+}
+
+/* More Products Button CSS */
+button.offer-btn:hover>i.fa-eye {
+  animation: squeeze 2.4s infinite;
+  animation: blink 2.4s infinite;
+}
+
+@keyframes blink {
+  90% {
+    transform: none;
+    animation-timing-function: ease;
+  }
+
+  93% {
+    transform: translateY(10px) scaleY(0)
+  }
+
+  100% {
+    animation-timing-function: ease;
+  }
+}
+
+@keyframes squeeze {
+  90% {
+    transform: none;
+    animation-timing-function: ease;
+  }
+
+  93% {
+    transform: translateY(3px) scaleY(0.8)
+  }
+
+  100% {
+    animation-timing-function: ease;
+  }
 }
 
 /* Offer Slider CSS */

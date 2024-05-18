@@ -9,10 +9,18 @@
     {% include 'html/quickhtml/banner-carousel.html' %}
     {% block banner-carousel %}{% endblock %}
 </div>
+<hr>
 <div class="offers">
     {% include "html/quickhtml/offer.html" %}
     {% block offer %}{% endblock %}
 </div>
+<hr>
+<div class="products">
+    {% include 'html/products/new-products.html' %}
+    {% block new-products %}{% endblock %}
+</div>
+
+
 {% endblock %}
 
 {% block js %}

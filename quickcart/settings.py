@@ -66,6 +66,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "quickcart.context_processors.category_details",
                 "quickcart.context_processors.banner_details",
+                "quickcart.context_processors.product_details",
             ],
         },
     },

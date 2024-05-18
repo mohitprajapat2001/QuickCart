@@ -1,18 +1,10 @@
 {% load static %}
 {% block banner-carousel %}
-<div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-  <div class="carousel-indicators">
-    {% for banner in banners %}
-    {% if banner.status %}
-    <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="{{forloop.counter}}" {% if forloop.first %}
-      class="active" {% endif %} disabled></button>
-    {% endif %}
-    {% endfor %}
-  </div>
+<div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
   <div class="carousel-inner">
     {% for banner in banners %}
     {% if banner.status %}
-    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+    <div class="carousel-item {% if forloop.first %}active{% endif %}"  data-bs-interval="5000">
       <img src="{{banner.banner_image.url}}" class="d-block w-100 object-fit-cover" alt="banner-{{forloop.counter}}"
         style="height: 320px;">
     </div>
