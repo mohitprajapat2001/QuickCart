@@ -47,7 +47,7 @@ class Offer(TitleDescriptionModel, ActivatorModel, TimeStampedModel):
         return self.title
 
     class Meta:
-        verbose_name = "Product Discount"
+        verbose_name = "Offer"
         ordering = ["id"]
 
 

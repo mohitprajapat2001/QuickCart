@@ -24,6 +24,7 @@ class OfferAdmin(admin.ModelAdmin):
                     "user",
                     "discount",
                     "category",
+                    "image",
                     "status",
                 ],
             },
