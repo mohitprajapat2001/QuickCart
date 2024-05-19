@@ -7,5 +7,3 @@ __pycache__
 # Ignore SQLite database file
 db.sqlite3
 
-# Ignore Media files
-media
