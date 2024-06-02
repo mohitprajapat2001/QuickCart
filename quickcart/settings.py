@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "schema_graph",
     "phonenumber_field",
     "django_extensions",
+    "mptt",
 ]
 
 MIDDLEWARE = [

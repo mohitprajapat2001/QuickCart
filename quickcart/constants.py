@@ -13,3 +13,5 @@ SELLER_CHOICE = "seller"
 
 # HTML TEMPLATE
 HOME_HTML = "html/home.html"
+PRODUCT_LIST_VIEW = "html/products/listview.html"
+PRODUCT_GRID_VIEW = "html/products/gridview.html"

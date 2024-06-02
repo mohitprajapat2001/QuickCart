@@ -4,7 +4,7 @@ from django_extensions.db.models import ActivatorModel, TitleDescriptionModel
 
 
 class Banner(TitleDescriptionModel, ActivatorModel):
-    banner_image = models.ImageField(
+    image = models.ImageField(
         verbose_name="Banner Image", upload_to="Banner Images", null=True, blank=True
     )
 

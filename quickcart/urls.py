@@ -10,7 +10,7 @@ urlpatterns = [
     path("admin/", admin.site.urls, name="admin"),
     path("", RedirectView.as_view(url="/home")),
     path("home/", include("quickcarthome.urls")),
-    path("products/", include("products.urls")),
+    path("category/", include("products.urls")),
     path("schema/", Schema.as_view()),
 ]
 

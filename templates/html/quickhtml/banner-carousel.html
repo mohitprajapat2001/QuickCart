@@ -5,7 +5,7 @@
     {% for banner in banners %}
     {% if banner.status %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}"  data-bs-interval="5000">
-      <img src="{{banner.banner_image.url}}" class="d-block w-100 object-fit-cover" alt="banner-{{forloop.counter}}"
+      <img src="{{banner.image.url}}" class="d-block w-100 object-fit-cover" alt="banner-{{forloop.counter}}"
         style="height: 320px;">
     </div>
     {% endif %}

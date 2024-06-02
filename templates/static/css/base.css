@@ -124,3 +124,12 @@ html {
     /* transform: translateY(-30px); */
     transition-duration: 0.3s;
 }
+
+
+
+/* Related Category List Animation */
+ul.related-category-list li:hover {
+    background: #f1f1f1;
+    border-radius: 10px;
+    cursor: pointer;
+}

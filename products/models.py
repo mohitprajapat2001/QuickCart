@@ -6,6 +6,7 @@ from django_extensions.db.models import (
     TitleDescriptionModel,
 )
 from users import models as userModel
+import random
 
 
 class Category(TitleDescriptionModel, ActivatorModel):
@@ -19,6 +20,22 @@ class Category(TitleDescriptionModel, ActivatorModel):
 
     def __str__(self):
         return self.title
+
+    def get_product(pk):
+        query = models.Q(pk=pk) | models.Q(subcategory_id=pk)
+        context = Category.objects.filter(query).distinct()
+        product_queries = [models.Q(category=category) for category in context]
+        combined_query = models.Q()
+        for query in product_queries:
+            combined_query |= query
+        products = Product.objects.filter(combined_query).distinct()
+        return products
+
+    def get_categories(pk):
+        query = models.Q(pk=pk) | models.Q(subcategory_id=pk)
+        categories = Category.objects.filter(query)
+        print(categories)
+        return categories
 
     class Meta:
         verbose_name = "Product Category"

@@ -3,7 +3,8 @@
 
     {% for category in categories %}
     <li>
-        <a type="button" class="cssbuttons-io-button text-decoration-none text-capitalize" href="/category/{{category.title}}">
+        <a type="button" class="cssbuttons-io-button text-decoration-none text-capitalize"
+            href="{% url 'list-product' category.pk %}">
             {{category.title}}
             <div class="icon">
                 <i class="fas fa-arrow-right"></i>
