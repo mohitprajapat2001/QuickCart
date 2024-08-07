@@ -1,0 +1,15 @@
+{% load static %}
+{% block banner-carousel %}
+<div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for banner in banners %}
+    {% if banner.status %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}"  data-bs-interval="5000">
+      <img src="{{banner.image.url}}" class="d-block w-100 object-fit-cover" alt="banner-{{forloop.counter}}"
+        style="height: 320px;">
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

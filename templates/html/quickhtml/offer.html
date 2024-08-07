@@ -1,0 +1,30 @@
+{% load static %}
+
+{% block offer %}
+<section class="my-3 mx-2">
+    <div class="container-fluid">
+        <div class="owl-carousel owl-1">
+            {% for offer in offers %}
+            {% if offer.image and offer.status %}
+            <div class="media-29101 d-md-flex w-100">
+                <div class="img" style="height: 128px;">
+                    <img src="{{offer.image.url}}" alt="Image" class="img-fluid object-fit-cover">
+                </div>
+                <div class="text">
+                    <a target="_blank" href="#">
+                        <button class="px-3 offer-btn border border-1 btn-primary">
+                            <span class="text-capitalize">{{offer.category}}</span>
+                            <i class="fa-brands fa-opencart"></i>
+                        </button>
+                    </a>
+                    <p class="py-2 display-6 fw-bolder">{{offer.title}} {{offer.discount}} % off</p>
+                    <p class="h3 fw-normal">{{offer.description}}</p>
+                </div>
+            </div> <!-- .item -->
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <!-- container end.// -->
+</section>
+{% endblock %}

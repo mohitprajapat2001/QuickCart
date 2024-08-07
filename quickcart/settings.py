@@ -18,6 +18,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Quick Cart Customization
+# Custom User Model
+
+AUTH_USER_MODEL = "users.CustomUser"
+
 
 # Application definition
 
@@ -28,9 +33,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "users.apps.UsersConfig",
+    "products.apps.ProductsConfig",
+    "quickcarthome.apps.QuickcarthomeConfig",
     "schema_graph",
     "phonenumber_field",
     "django_extensions",
+    "mptt",
 ]
 
 MIDDLEWARE = [
@@ -56,6 +65,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "quickcart.context_processors.category_details",
+                "quickcart.context_processors.banner_details",
+                "quickcart.context_processors.product_details",
             ],
         },
     },
@@ -94,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Kolkata"
 
 USE_I18N = True
 

@@ -1,0 +1,135 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Nav Links */
+.cssbuttons-io-button {
+    background: #a370f0;
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+    cursor: pointer;
+}
+
+.cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+    right: 0.3em;
+    transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+    width: calc(60% - 0.6em);
+}
+
+.cssbuttons-io-button .icon i {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon i {
+    transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+}
+
+
+/* Nav Links */
+.nav-links:hover {
+    transition: all 0.5s !important;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.back-to-top .button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.back-to-top i {
+    width: 12px;
+    transition-duration: 0.3s;
+}
+
+.back-to-top .button:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(181, 160, 255);
+    align-items: center;
+}
+
+.back-to-top .button:hover i {
+    /* width: 20px; */
+    transition-duration: 0.3s;
+    transform: translateY(-200%);
+}
+
+.back-to-top .button::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Back to Top";
+    color: white;
+    /* transition-duration: .3s; */
+    font-size: 0px;
+}
+
+.back-to-top .button:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+    /* transform: translateY(-30px); */
+    transition-duration: 0.3s;
+}
+
+
+
+/* Related Category List Animation */
+ul.related-category-list li:hover {
+    background: #f1f1f1;
+    border-radius: 10px;
+    cursor: pointer;
+}

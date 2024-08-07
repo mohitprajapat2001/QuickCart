@@ -1,0 +1,67 @@
+{% load static %}
+{% block category %}
+<!-- Container wrapper -->
+<div class="category-bar border-top border-bottom d-none d-md-block">
+    <span class="d-block p-3 mb-2 bg-light-subtle">
+        <ul class="navbar-nav ms-auto d-flex flex-row justify-content-start">
+            <li class="nav-item">
+                <a href="{% url 'home' %}"
+                    class="nav-links me-1 border rounded py-1 px-2 mx-2 nav-link d-flex align-items-center">
+                    <i class="fas fa-home m-1 me-md-2"></i>
+                    <p class="d-none d-lg-block d-md-block mb-0">Home</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-links me-1 border rounded py-1 px-2 mx-2 nav-link d-flex align-items-center">
+                    <i class="fas fa-shirt m-1 me-md-2"></i>
+                    <p class="d-none d-md-block mb-0">Fashion</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-links me-1 border rounded py-1 px-2 mx-2 nav-link d-flex align-items-center">
+                    <i class="fas fa-headphones m-1 me-md-2"></i>
+                    <p class="d-none d-md-block mb-0">Audio</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-links me-1 border rounded py-1 px-2 mx-2 nav-link d-flex align-items-center">
+                    <i class="fas fa-gamepad m-1 me-md-2"></i>
+                    <p class="d-none d-md-block mb-0">Gaming</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-links me-1 border rounded py-1 px-2 mx-2 nav-link d-flex align-items-center">
+                    <i class="fas fa-mobile m-1 me-md-2"></i>
+                    <p class="d-none d-md-block mb-0">Mobile</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-links me-1 border rounded py-1 px-2 mx-2 nav-link d-flex align-items-center">
+                    <i class="fas fa-bolt m-1 me-md-2"></i>
+                    <p class="d-none d-md-block mb-0">Electronics</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <button class="nav-links me-1 border rounded py-1 px-2 nav-link d-flex align-items-center" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    <i class="fa fa-sliders m-1 me-md-2"></i>
+                    <p class="d-none d-md-block mb-0">All</p>
+                </button>
+            </li>
+        </ul>
+    </span>
+</div>
+
+<!-- OffCavas for Sidebar -->
+<div class="offcanvas offcanvas-start" tabindex="0" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">All Categories</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body bg-tertiary">
+        {% include 'html/stock/category-sidebar.html' %}
+        {% block category-sidebar %}{% endblock %}
+    </div>
+</div>
+<!-- End Offcanava -->
+{% endblock %}

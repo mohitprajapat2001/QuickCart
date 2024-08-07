@@ -1,0 +1,91 @@
+{% load static %}
+{% block nav %}
+<!-- Navbar Start -->
+<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid justify-content-between">
+        <!-- Nav Form -->
+        <div class="nav-form">
+            <form class="d-none d-lg-flex input-group w-auto my-auto">
+                <input autocomplete="off" type="search" id="nav-input" class="form-control rounded"
+                    placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
+                <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
+            </form>
+        </div>
+        <!-- Brand -->
+        <div class="nav-brand">
+            <a class="navbar-brand text-uppercase fs-2 fw-bolder me-2 mb-1 d-flex text-center" href="{% url 'home' %}">
+                quickcart
+            </a>
+        </div>
+        <!-- Nav Links -->
+        <div class="nav-links-div">
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+                <li class="nav-item">
+                    <a href="{% url 'home' %}"
+                        class="nav-links me-1 border rounded py-1 px-2 nav-link d-flex align-items-center hover-shadow">
+                        <i class="fas fa-home m-1 me-md-2"></i>
+                        <p class="d-none d-md-block mb-0">Home</p>
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <!-- Avatar -->
+                <li class="nav-item dropdown">
+                    <button
+                        class="nav-links me-1 border rounded py-1 px-2 nav-link d-flex align-items-center hover-shadow"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
+                            height="22" alt="profile" loading="lazy" />
+                        <p class="d-none d-md-block mb-0">Profile</p>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="avtarDropDown">
+                        <li><a class="dropdown-item" href="$">My profile</a></li>
+                        <li><a class="dropdown-item" href="$">Logout</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-links me-1 border rounded py-1 px-2 nav-link d-flex align-items-center hover-shadow">
+                        <i class="fas fa-cart-shopping m-1 me-md-2"></i>
+                        <p class="d-none d-md-block mb-0">Cart</p>
+                    </a>
+                </li>
+                {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a href="/admin"
+                        class="nav-links me-1 border rounded py-1 px-2 nav-link d-flex align-items-center hover-shadow"
+                        target="_blank"> <i class="fas fa-crown m-1 me-md-2"></i>
+                        <p class="d-none d-md-block mb-0">Admin</p>
+                    </a>
+                </li>
+                {% endif %}
+                {% else %}
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-links me-1 border rounded py-1 px-2 nav-link d-flex align-items-center hover-shadow"
+                        target="_blank"> <i class="fas fa-right-to-bracket m-1 me-md-2"></i>
+                        <p class="d-none d-md-block mb-0">Login</p>
+                    </a>
+                </li>
+                {% endif %}
+                </li>
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-links me-1 border rounded py-1 px-2 nav-link d-flex align-items-center hover-shadow">
+                        <i class="fas fa-info-circle m-1 me-md-2"></i>
+                    </a>
+                </li>
+                <li>
+                    <button
+                        class="nav-links me-1 border rounded py-1 px-2 nav-link d-flex align-items-center hover-shadow d-lg-none"
+                        type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                        aria-controls="offcanvasExample">
+                        <i class="fa fa-sliders m-1 me-md-2"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!-- Navbar End -->
+{% endblock %}
